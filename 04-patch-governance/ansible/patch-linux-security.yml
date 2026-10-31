@@ -1,0 +1,46 @@
+---
+# Security-focused package updates on RHEL-family hosts (dnf/yum).
+# Run: ansible-playbook -i inventory.example.ini patch-linux-security.yml --limit linux_canary --check
+# Governance: change ticket, snapshot/backup, health baseline, canary → batch → remainder.
+
+- name: Patch Linux — security advisories only (canary-friendly)
+  hosts: linux
+  become: true
+  serial: 1
+  vars:
+    patch_reboot: false
+
+  pre_tasks:
+    - name: Gather service facts
+      ansible.builtin.service_facts:
+
+  tasks:
+    - name: Check pending updates (dnf)
+      ansible.builtin.command: dnf check-update
+      register: dnf_check
+      changed_when: false
+      failed_when: dnf_check.rc not in [0, 100]
+      when: ansible_pkg_mgr == 'dnf'
+
+    - name: Apply security updates (dnf)
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+        security: true
+        update_cache: true
+      register: dnf_patch
+      when: ansible_pkg_mgr == 'dnf'
+
+    - name: Report if reboot recommended (needs-restarting)
+      ansible.builtin.command: needs-restarting -r
+      register: reboot_check
+      changed_when: false
+      failed_when: false
+
+    - name: Reboot if explicitly enabled and required
+      ansible.builtin.reboot:
+        msg: 'Reboot after security patching (Ansible)'
+        reboot_timeout: 600
+      when:
+        - patch_reboot | bool
+        - reboot_check.rc == 1

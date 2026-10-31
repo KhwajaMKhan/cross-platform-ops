@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+.venv/
+__pycache__/
+*.retry
+.vscode/
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
