@@ -2,7 +2,7 @@
 
 **Open source (MIT).** Small, reusable scripts and playbooks for the same operational problems on **Linux and Windows** — in the cloud (AWS, Azure, GCP, OCI) or on-premises.
 
-This repo is the **companion lab** for a five-part blog series (drafts under `~/Documents/blogs/blog-ops-fundamentals/` — not committed here).
+This repo is the **companion lab** for a six-part blog series (drafts local under `blog-ops-fundamentals/` — not committed here).
 
 | Folder | Topic |
 |--------|--------|
@@ -12,7 +12,7 @@ This repo is the **companion lab** for a five-part blog series (drafts under `~/
 | [`03-backups-vs-snapshots/`](03-backups-vs-snapshots/) | Pre-change backup checklist (policy vs point-in-time copy) |
 | [`04-patch-governance/`](04-patch-governance/) | Patch baseline scripts + Ansible sketch |
 
-Blog **#5** (backups at TB/PB scale) is draft-only in the blogs folder.
+Blog **#5** (TB/PB backups) and **#6** (golden image / ASG) are pattern posts — drafts stay outside this repo.
 
 ## Requirements
 
