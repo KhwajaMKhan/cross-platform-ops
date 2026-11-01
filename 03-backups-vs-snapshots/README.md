@@ -1,4 +1,4 @@
-# 02 — Backups vs snapshots
+# 03 — Backups vs snapshots
 
 A **snapshot** (disk/array/VM point-in-time) is one **tool**. A **backup strategy** adds retention, scope, off-site/immutable copies, and **tested restore**.
 

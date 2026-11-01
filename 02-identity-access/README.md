@@ -1,4 +1,4 @@
-# 04 — Identity and access (not “open port 22”)
+# 02 — Identity and access (not “open port 22”)
 
 **Authentication** proves *who* you are. **Network rules** limit *where* packets may flow. Confusing the two leads to `0.0.0.0/0` on SSH, RDP, or WinRM.
 
@@ -20,6 +20,6 @@
 
 ## Scripts
 
-This folder is **documentation-first**. Operational scripts live in `01-dual-os-runbook/` (health) and `03-patch-governance/` (patch inventory).
+This folder is **documentation-first**. Operational scripts live in `01-dual-os-runbook/` (health) and `04-patch-governance/` (patch inventory).
 
 Blog draft: `~/Documents/blogs/blog-ops-fundamentals/02-identity-access/blog-draft.md`

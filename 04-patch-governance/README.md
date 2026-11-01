@@ -1,4 +1,4 @@
-# 03 — Patch governance
+# 04 — Patch governance
 
 Three **execution** styles share one **governance loop**: ticket → baseline health → protect → apply → validate → reboot if required → close or rollback.
 
